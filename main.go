@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	if err := storage.CreateGenesisBlock(); err != nil{
+	if err := storage.VerifyStorage(); err != nil{
 		fmt.Printf("err: %v\n", err)
 	}else{
 		fmt.Println("Blocco genesis aggiunto con successo")
