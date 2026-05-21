@@ -5,7 +5,6 @@ import (
 	"crypto/sha256"
 	"encoding/binary"
 	"fmt"
-	"math/rand/v2"
 	"time"
 )
 
@@ -156,20 +155,4 @@ func ValidateBlock(block Block, prev Block) error {
 	}
 
 	return nil
-}
-
-func CreateGenesisBlock() Block {
-
-	var genesisBlock = Block{
-		Header: BlockHeader{
-			Index:      0,
-			Timestamp:  time.Now().Unix(),
-			PrevHash:   [32]byte{},
-			Difficulty: 1,
-			Nonce:      rand.Uint64(),
-		},
-	}
-	genesisBlock.Hash = genesisBlock.CalculateHash()
-
-	return genesisBlock
 }
